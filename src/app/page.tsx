@@ -1,11 +1,9 @@
-import { Logo } from '@/shared/logo'
+import { Header } from '@/widgets/header'
 
 export default function HomePage() {
 	return (
 		<div>
-			<header className='bg-teal-500 text-center p-3	'>
-				<Logo />
-			</header>
+			<Header />
 
 			<main></main>
 
