@@ -10,7 +10,7 @@ const RootLayout: FC<IRootLayout> = props => {
 
 	return (
 		<html lang='en'>
-			<body className='antialiased text-teal-950'>{children}</body>
+			<body className='antialiased min-h-screen'>{children}</body>
 		</html>
 	)
 }
