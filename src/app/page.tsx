@@ -1,3 +1,4 @@
+import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
 
 export default function HomePage() {
@@ -7,7 +8,7 @@ export default function HomePage() {
 
 			<main></main>
 
-			<footer></footer>
+			<Footer />
 		</div>
 	)
 }
