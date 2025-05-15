@@ -1,6 +1,14 @@
 import { FC } from 'react'
 import './global.css'
 
+import { Noto_Sans } from 'next/font/google'
+
+const notoSans = Noto_Sans({
+	subsets: ['latin', 'cyrillic'],
+	weight: ['400', '600', '700'],
+	display: 'swap',
+})
+
 interface IRootLayout {
 	readonly children: React.ReactNode
 }
@@ -10,7 +18,9 @@ const RootLayout: FC<IRootLayout> = props => {
 
 	return (
 		<html lang='en'>
-			<body className='antialiased min-h-screen'>{children}</body>
+			<body className={`antialiased min-h-screen ${notoSans.className}`}>
+				{children}
+			</body>
 		</html>
 	)
 }
