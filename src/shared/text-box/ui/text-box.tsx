@@ -15,7 +15,7 @@ const Component = (props: ITextBox, ref: React.Ref<HTMLInputElement>) => {
 	return (
 		<div className={clsx('flex flex-col gap-0', className)}>
 			{label && (
-				<label htmlFor={id} className='text-md'>
+				<label htmlFor={id} className='text-md text-white px-2'>
 					{label}
 				</label>
 			)}
@@ -24,10 +24,12 @@ const Component = (props: ITextBox, ref: React.Ref<HTMLInputElement>) => {
 				{...inputProps}
 				id={id}
 				ref={ref}
-				className='rounded outline-0 bg-cyan-100 text-md p-1'
+				className='rounded outline-1 outline-emerald-500 text-emerald-950 bg-teal-100 text-md py-1 px-2'
 			/>
 
-			{error && <div className='text-sm font-bold text-red-500'>{error}</div>}
+			{error && (
+				<div className='text-sm font-bold text-red-500 px-2'>{error}</div>
+			)}
 		</div>
 	)
 }

@@ -26,7 +26,7 @@ const RootLayout: FC<IRootLayout> = props => {
 	return (
 		<html lang='en'>
 			<body
-				className={`antialiased min-h-screen bg-cyan-50 ${notoSans.className}`}
+				className={`antialiased min-h-screen bg-sky-200 ${notoSans.className}`}
 			>
 				{children}
 			</body>

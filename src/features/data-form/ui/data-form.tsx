@@ -12,7 +12,7 @@ export const DataForm: FC<IDataForm> = props => {
 	return (
 		<form
 			className={clsx(
-				'w-[900px] flex flex-col items-center gap-5 px-10 py-5 bg-emerald-400 text-white rounded-xl',
+				'w-[900px] flex flex-col items-center gap-5 px-10 py-5 bg-emerald-500 text-white rounded-xl border border-emerald-500 shadow-2xs shadow-emerald-500',
 				className
 			)}
 		>
