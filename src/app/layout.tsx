@@ -9,6 +9,13 @@ const notoSans = Noto_Sans({
 	display: 'swap',
 })
 
+export const metadata = {
+	title: 'DocuLetter',
+	icons: {
+		icon: '/favicon.svg',
+	},
+}
+
 interface IRootLayout {
 	readonly children: React.ReactNode
 }
