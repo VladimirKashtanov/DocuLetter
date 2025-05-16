@@ -9,7 +9,7 @@ export default function HomePage() {
 
 			<main className='flex-grow flex flex-col items-center justify-center px-40 py-12 text-emerald-900'>
 				<h1 className='font-bold text-3xl'>Давайте создадим деловое письмо</h1>
-				<DataForm />
+				<DataForm className='mt-5' />
 			</main>
 
 			<Footer />
