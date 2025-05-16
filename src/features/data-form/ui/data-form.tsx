@@ -10,7 +10,12 @@ export const DataForm: FC<IDataForm> = props => {
 	const { className } = props
 
 	return (
-		<form className={clsx('w-[100%] flex flex-col gap-5', className)}>
+		<form
+			className={clsx(
+				'w-[900px] flex flex-col items-center gap-5 px-10 py-5 bg-emerald-400 text-white rounded-xl',
+				className
+			)}
+		>
 			<Recipient />
 
 			<div></div>
