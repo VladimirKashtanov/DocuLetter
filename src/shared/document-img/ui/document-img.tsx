@@ -25,3 +25,5 @@ export const DocumentImg: FC<IDocumentImg> = props => {
 		</svg>
 	)
 }
+
+export default DocumentImg
