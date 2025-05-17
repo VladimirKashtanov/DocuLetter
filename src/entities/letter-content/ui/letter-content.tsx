@@ -1,3 +1,4 @@
+import { TextArea } from '@/shared/text-area'
 import { TextBox } from '@/shared/text-box'
 import clsx from 'clsx'
 import { FC } from 'react'
@@ -16,7 +17,7 @@ export const LetterContent: FC<ILetterContent> = props => {
 			</h2>
 
 			<TextBox label='Приветствие' error='' />
-			<TextBox label='Информативная часть' error='' />
+			<TextArea label='Информативная часть' error='' />
 		</div>
 	)
 }
