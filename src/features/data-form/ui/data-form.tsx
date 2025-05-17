@@ -22,22 +22,22 @@ export const DataForm: FC<IDataForm> = props => {
 		>
 			<div className='flex flex-col gap-5 w-[100%]'>
 				<SenderCompany />
-				<div className='rounded bg-emerald-600 w-[100%] h-[3px]' />
+				<div className='rounded bg-emerald-600 w-[100%] h-[2px]' />
 			</div>
 
 			<div className='flex flex-col gap-5 w-[100%]'>
 				<Sender />
-				<div className='rounded bg-emerald-600 w-[100%] h-[3px]' />
+				<div className='rounded bg-emerald-600 w-[100%] h-[2px]' />
 			</div>
 
 			<div className='flex flex-col gap-5 w-[100%]'>
 				<Recipient />
-				<div className='rounded bg-emerald-600 w-[100%] h-[3px]' />
+				<div className='rounded bg-emerald-600 w-[100%] h-[2px]' />
 			</div>
 
 			<div className='flex flex-col gap-5 w-[100%]'>
 				<Letter />
-				<div className='rounded bg-emerald-600 w-[100%] h-[3px]' />
+				<div className='rounded bg-emerald-600 w-[100%] h-[2px]' />
 			</div>
 
 			<LetterContent />

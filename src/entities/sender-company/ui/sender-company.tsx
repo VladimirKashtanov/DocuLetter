@@ -22,8 +22,18 @@ export const SenderCompany: FC<ISenderCompany> = props => {
 			<TextBox label='Адрес организации' error='' />
 
 			<div className='flex justify-between'>
-				<TextBox label='Телефон организации' error='' className='w-[48%]' />
-				<TextBox label='E-mail организации' error='' className='w-[48%]' />
+				<TextBox
+					label='Телефон организации'
+					type='phone'
+					error=''
+					className='w-[48%]'
+				/>
+				<TextBox
+					label='E-mail организации'
+					type='email'
+					error=''
+					className='w-[48%]'
+				/>
 			</div>
 
 			<div className='flex justify-between'>

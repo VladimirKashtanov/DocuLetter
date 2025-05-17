@@ -16,7 +16,7 @@ export const Recipient: FC<IRecipient> = props => {
 			</h2>
 
 			<TextBox label='Должность, ФИО (в родительном падеже)' error='' />
-			<TextBox label='Телефон' error='' />
+			<TextBox label='Телефон' type='phone' error='' />
 		</div>
 	)
 }
