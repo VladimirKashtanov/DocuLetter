@@ -43,7 +43,7 @@ const Component = (props: IFileBox, ref: React.Ref<HTMLInputElement>) => {
 				type={'file'}
 				accept={'image/*'}
 				onChange={handleFileChanged}
-				className='cursor-pointer rounded outline-1 outline-emerald-500 text-emerald-950 bg-teal-100 text-md py-1 px-2'
+				className='cursor-pointer rounded outline-1 outline-emerald-500 text-emerald-800 bg-teal-100 text-md py-1 px-2'
 			/>
 
 			{error && (
