@@ -1,4 +1,4 @@
-import { Recipient } from '@/entities/recipient'
+import { RecipientCompany } from '@/entities/recipient-company'
 import clsx from 'clsx'
 import { FC } from 'react'
 
@@ -16,7 +16,7 @@ export const DataForm: FC<IDataForm> = props => {
 				className
 			)}
 		>
-			<Recipient />
+			<RecipientCompany />
 
 			<div></div>
 
