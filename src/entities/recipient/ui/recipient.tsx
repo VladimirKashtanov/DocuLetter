@@ -1,3 +1,4 @@
+import { FileBox } from '@/shared/file-box'
 import { TextBox } from '@/shared/text-box'
 import clsx from 'clsx'
 import { FC } from 'react'
@@ -15,6 +16,7 @@ export const Recipient: FC<IRecipient> = props => {
 				Реквизиты организации отправителя
 			</h2>
 
+			<FileBox label='Логотип организации (при наличии)' error='' />
 			<TextBox label='Организационно-правовая форма' error='' />
 			<TextBox label='Фирменное название' error='' />
 			<TextBox label='Адрес организации' error='' />

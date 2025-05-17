@@ -4,11 +4,12 @@ import { forwardRef, InputHTMLAttributes, useId } from 'react'
 interface ITextBox extends InputHTMLAttributes<HTMLInputElement> {
 	readonly label?: string
 	readonly error?: string
+	readonly type?: 'text'
 	readonly className?: string
 }
 
 const Component = (props: ITextBox, ref: React.Ref<HTMLInputElement>) => {
-	const { label, error, className, ...inputProps } = props
+	const { label, error, type, className, ...inputProps } = props
 
 	const id = useId()
 
@@ -24,6 +25,7 @@ const Component = (props: ITextBox, ref: React.Ref<HTMLInputElement>) => {
 				{...inputProps}
 				id={id}
 				ref={ref}
+				type={type}
 				className='rounded outline-1 outline-emerald-500 text-emerald-950 bg-teal-100 text-md py-1 px-2'
 			/>
 
