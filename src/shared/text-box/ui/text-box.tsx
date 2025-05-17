@@ -4,7 +4,7 @@ import { forwardRef, InputHTMLAttributes, useId } from 'react'
 interface ITextBox extends InputHTMLAttributes<HTMLInputElement> {
 	readonly label?: string
 	readonly error?: string
-	readonly type?: 'text'
+	readonly type?: 'text' | 'date'
 	readonly className?: string
 }
 

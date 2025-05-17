@@ -1,3 +1,4 @@
+import { Letter } from '@/entities/letter'
 import { Recipient } from '@/entities/recipient'
 import { Sender } from '@/entities/sender'
 import { SenderCompany } from '@/entities/sender-company'
@@ -33,7 +34,11 @@ export const DataForm: FC<IDataForm> = props => {
 				<div className='rounded bg-emerald-600 w-[100%] h-[3px]' />
 			</div>
 
-			<div></div>
+			<div className='flex flex-col gap-5 w-[100%]'>
+				<Letter />
+				<div className='rounded bg-emerald-600 w-[100%] h-[3px]' />
+			</div>
+
 			<div></div>
 		</form>
 	)
