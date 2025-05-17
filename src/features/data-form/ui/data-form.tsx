@@ -3,6 +3,7 @@ import { LetterContent } from '@/entities/letter-content'
 import { Recipient } from '@/entities/recipient'
 import { Sender } from '@/entities/sender'
 import { SenderCompany } from '@/entities/sender-company'
+import { Button } from '@/shared/button'
 import clsx from 'clsx'
 import { FC } from 'react'
 
@@ -40,7 +41,14 @@ export const DataForm: FC<IDataForm> = props => {
 				<div className='rounded bg-emerald-600 w-[100%] h-[2px]' />
 			</div>
 
-			<LetterContent />
+			<div className='flex flex-col gap-5 w-[100%]'>
+				<LetterContent />
+				<div className='rounded bg-emerald-600 w-[100%] h-[2px]' />
+			</div>
+
+			<Button type='submit' className='font-semibold'>
+				Сгенерировать письмо
+			</Button>
 		</form>
 	)
 }
