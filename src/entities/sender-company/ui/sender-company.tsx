@@ -3,11 +3,11 @@ import { TextBox } from '@/shared/text-box'
 import clsx from 'clsx'
 import { FC } from 'react'
 
-interface IRecipientCompany {
+interface ISenderCompany {
 	readonly className?: string
 }
 
-export const RecipientCompany: FC<IRecipientCompany> = props => {
+export const SenderCompany: FC<ISenderCompany> = props => {
 	const { className } = props
 
 	return (
@@ -34,4 +34,4 @@ export const RecipientCompany: FC<IRecipientCompany> = props => {
 	)
 }
 
-export default RecipientCompany
+export default SenderCompany

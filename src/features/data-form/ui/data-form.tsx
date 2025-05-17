@@ -1,5 +1,5 @@
-import { Recipient } from '@/entities/recipient'
-import { RecipientCompany } from '@/entities/recipient-company'
+import { Sender } from '@/entities/sender'
+import { SenderCompany } from '@/entities/sender-company'
 import clsx from 'clsx'
 import { FC } from 'react'
 
@@ -18,12 +18,12 @@ export const DataForm: FC<IDataForm> = props => {
 			)}
 		>
 			<div className='flex flex-col gap-5 w-[100%]'>
-				<RecipientCompany />
+				<SenderCompany />
 				<div className='rounded bg-emerald-600 w-[100%] h-[3px]' />
 			</div>
 
 			<div className='flex flex-col gap-5 w-[100%]'>
-				<Recipient />
+				<Sender />
 				<div className='rounded bg-emerald-600 w-[100%] h-[3px]' />
 			</div>
 
