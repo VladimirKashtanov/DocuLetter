@@ -73,6 +73,8 @@ export const SenderCompany: FC<ISenderCompany> = props => {
 					className='w-[48%]'
 				/>
 			</div>
+
+			<div className='rounded bg-emerald-400 w-[100%] h-1 mt-3' />
 		</div>
 	)
 }

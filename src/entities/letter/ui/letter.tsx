@@ -30,6 +30,8 @@ export const Letter: FC<ILetter> = props => {
 				error=''
 				{...register('rNumber')}
 			/>
+
+			<div className='rounded bg-emerald-400 w-[100%] h-1 mt-3' />
 		</div>
 	)
 }

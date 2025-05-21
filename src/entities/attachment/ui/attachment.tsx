@@ -5,26 +5,33 @@ import clsx from 'clsx'
 import { FC } from 'react'
 import { UseFormRegister } from 'react-hook-form'
 
-interface ILetterContent {
+interface IAttachment {
 	readonly register: UseFormRegister<DataFormContentType>
+	readonly index: number
 	readonly className?: string
 }
 
-export const LetterContent: FC<ILetterContent> = props => {
-	const { register, className } = props
+export const Attachment: FC<IAttachment> = props => {
+	const { register, index, className } = props
 
 	return (
 		<div className={clsx('flex flex-col gap-3 w-[100%]', className)}>
 			<h2 className='self-center text-xl font-bold text-white'>
-				Содержание письма
+				Текстовое приложение {index + 1}
 			</h2>
 
-			<TextBox label='Приветствие' error='' {...register('header')} />
-			<TextArea label='Содержательная часть' error='' {...register('body')} />
-
-			<div className='rounded bg-emerald-400 w-[100%] h-1 mt-3' />
+			<TextBox
+				label='Заголовок'
+				error=''
+				{...register(`attachments.${index}.title`)}
+			/>
+			<TextArea
+				label='Содержание'
+				error=''
+				{...register(`attachments.${index}.content`)}
+			/>
 		</div>
 	)
 }
 
-export default LetterContent
+export default Attachment

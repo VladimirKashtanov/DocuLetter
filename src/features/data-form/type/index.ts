@@ -17,10 +17,15 @@ export type DataFormContentType = {
 	recipientPhone: string
 
 	header: string
-	body: any
+	body: { content: string }[]
 
 	sendingDate: string
 	number: string
 	rNumber: string
 	receivedDate: string
+
+	attachments: {
+		title: string
+		content: string
+	}[]
 }

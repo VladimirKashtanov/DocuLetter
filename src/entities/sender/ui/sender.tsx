@@ -22,6 +22,8 @@ export const Sender: FC<ISender> = props => {
 			<TextBox label='Имя' error='' {...register('senderFName')} />
 			<TextBox label='Отчество' error='' {...register('senderPatronymic')} />
 			<TextBox label='Должность' error='' {...register('senderGrade')} />
+
+			<div className='rounded bg-emerald-400 w-[100%] h-1 mt-3' />
 		</div>
 	)
 }

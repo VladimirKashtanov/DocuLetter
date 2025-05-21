@@ -1,8 +1,14 @@
-import { useForm } from 'react-hook-form'
+import { useFieldArray, useForm } from 'react-hook-form'
 import { DataFormContentType } from '../type'
 
 export const useDataForm = () => {
-	const { register, handleSubmit, setValue } = useForm<DataFormContentType>()
+	const { control, register, handleSubmit, setValue } =
+		useForm<DataFormContentType>()
+
+	const attachArray = useFieldArray({
+		control,
+		name: 'attachments',
+	})
 
 	const createLetter = async (data: DataFormContentType) => {
 		const formData = new FormData()
@@ -45,6 +51,7 @@ export const useDataForm = () => {
 
 	return {
 		register,
+		attachArray,
 		handleSubmit,
 		createLetter,
 		handleImageChange,

@@ -29,6 +29,8 @@ export const Recipient: FC<IRecipient> = props => {
 				error=''
 				{...register('recipientPhone')}
 			/>
+
+			<div className='rounded bg-emerald-400 w-[100%] h-1 mt-3' />
 		</div>
 	)
 }
