@@ -1,16 +1,23 @@
 'use client'
 
 import clsx from 'clsx'
-import { forwardRef, InputHTMLAttributes, useId, useState } from 'react'
+import {
+	ChangeEvent,
+	forwardRef,
+	InputHTMLAttributes,
+	useId,
+	useState,
+} from 'react'
 
 interface IFileBox extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
 	readonly label?: string
 	readonly error?: string
+	readonly handleImageChange: (e: ChangeEvent<HTMLInputElement>) => void
 	readonly className?: string
 }
 
 const Component = (props: IFileBox, ref: React.Ref<HTMLInputElement>) => {
-	const { label, error, className, ...inputProps } = props
+	const { label, error, handleImageChange, className, ...inputProps } = props
 
 	const id = useId()
 	const [preview, setPreview] = useState<string | null>(null)
@@ -28,6 +35,11 @@ const Component = (props: IFileBox, ref: React.Ref<HTMLInputElement>) => {
 		}
 	}
 
+	const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		handleImageChange(event)
+		handleFileChanged(event)
+	}
+
 	return (
 		<div className={clsx('flex flex-col gap-0', className)}>
 			{label && (
@@ -42,7 +54,7 @@ const Component = (props: IFileBox, ref: React.Ref<HTMLInputElement>) => {
 				ref={ref}
 				type={'file'}
 				accept={'image/*'}
-				onChange={handleFileChanged}
+				onChange={onChange}
 				className='cursor-pointer rounded outline-1 outline-emerald-500 text-emerald-700 bg-teal-100 text-md py-1 px-2'
 			/>
 
@@ -54,7 +66,7 @@ const Component = (props: IFileBox, ref: React.Ref<HTMLInputElement>) => {
 				<img
 					src={preview}
 					alt='Предпросмотр'
-					className='rounded border border-emerald-600 my-1 w-[150px] max-w-120px]'
+					className='rounded border border-emerald-600 bg-white my-1 w-[150px] max-w-120px]'
 				/>
 			)}
 		</div>
