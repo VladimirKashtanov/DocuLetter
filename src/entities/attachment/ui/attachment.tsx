@@ -25,11 +25,7 @@ export const Attachment: FC<IAttachment> = props => {
 				error=''
 				{...register(`attachments.${index}.title`)}
 			/>
-			<TextArea
-				label='Содержание'
-				error=''
-				{...register(`attachments.${index}.content`)}
-			/>
+			<TextArea label='Содержание' error='' />
 		</div>
 	)
 }

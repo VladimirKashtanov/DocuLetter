@@ -1,6 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
+import Image from 'next/image'
 import {
 	ChangeEvent,
 	forwardRef,
@@ -63,7 +64,7 @@ const Component = (props: IFileBox, ref: React.Ref<HTMLInputElement>) => {
 			)}
 
 			{preview && (
-				<img
+				<Image
 					src={preview}
 					alt='Предпросмотр'
 					className='rounded border border-emerald-600 bg-white my-1 w-[150px] max-w-120px]'

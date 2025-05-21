@@ -14,11 +14,21 @@ export const useDataForm = () => {
 		const formData = new FormData()
 
 		for (const [key, value] of Object.entries(data)) {
-			if (key !== 'logo') {
+			if (key === 'logo' || key === 'attachments') continue
+
+			if (value !== undefined && value !== null) {
 				formData.append(key, String(value))
 			}
 		}
 
+		// Обрабатываем attachments
+		if (data.attachments) {
+			data.attachments.forEach((item, index) => {
+				formData.append(`attachments[${index}][title]`, item.title)
+			})
+		}
+
+		// Обрабатываем файл с изображением
 		if (data.logo && data.logo[0]) {
 			formData.append('logo', data.logo[0])
 		}

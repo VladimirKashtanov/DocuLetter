@@ -17,7 +17,7 @@ export type DataFormContentType = {
 	recipientPhone: string
 
 	header: string
-	body: { content: string }[]
+	bodyContent: string
 
 	sendingDate: string
 	number: string
@@ -26,6 +26,5 @@ export type DataFormContentType = {
 
 	attachments: {
 		title: string
-		content: string
 	}[]
 }

@@ -19,7 +19,7 @@ export const Recipient: FC<IRecipient> = props => {
 			</h2>
 
 			<TextBox
-				label='Должность, организация, ФИО (в родительном падеже)'
+				label='Должность, организация, ФИО (в дательном падеже)'
 				error=''
 				{...register('recipient')}
 			/>

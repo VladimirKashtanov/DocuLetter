@@ -12,6 +12,19 @@ export const POST = async (req: NextRequest) => {
 
 		// Подготовка данных для docxtemplater
 		const [y, m, d] = formData.get('receivedDate')?.toString().split('-') || ''
+
+		const attachments = new Array<{
+			title: string
+			index: number
+		}>()
+		let index = 0
+		while (true) {
+			const title = formData.get(`attachments[${index}][title]`)?.toString()
+			if (!title) break
+			attachments.push({ title, index: index + 1 })
+			index++
+		}
+
 		const data = {
 			companyOrganizationalForm: formData
 				.get('companyOrganizationalForm')
@@ -38,7 +51,7 @@ export const POST = async (req: NextRequest) => {
 
 			header: formData.get('header')?.toString(),
 			body: formData
-				.get('body')
+				.get('bodyContent')
 				?.toString()
 				?.split(/\r?\n/)
 				.filter(p => p.trim() !== '')
@@ -50,6 +63,12 @@ export const POST = async (req: NextRequest) => {
 			number: formData.get('number')?.toString(),
 			rNumber: formData.get('rNumber')?.toString() || '',
 			receivedDate: y && m && d ? `${d}.${m}.${y}` : '',
+
+			attachments:
+				attachments.map(item => ({
+					title: item.title,
+					index: `Приложение ${item.index}`,
+				})) || {},
 		}
 
 		// Загрузка и обработка шаблона docxtemplater
@@ -69,8 +88,7 @@ export const POST = async (req: NextRequest) => {
 			},
 		})
 
-		doc.setData(data)
-		doc.render()
+		doc.render(data)
 
 		// Получение промежуточного DOCX без изображения
 		let docxBuffer = doc.getZip().generate({
@@ -137,8 +155,10 @@ export const POST = async (req: NextRequest) => {
 				'Content-Disposition': 'attachment; filename="letter.docx"',
 			},
 		})
-	} catch (err: any) {
-		console.error(err)
+	} catch (err) {
+		const error =
+			err instanceof Error ? err : new Error('Unknown error occurred')
+		console.error(error)
 		return new NextResponse('Internal server error', { status: 500 })
 	}
 }

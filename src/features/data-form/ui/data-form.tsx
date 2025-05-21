@@ -61,7 +61,7 @@ export const DataForm: FC<IDataForm> = props => {
 				))}
 				<Button
 					type='button'
-					onClick={() => attachArray.append({ title: '', content: '' })}
+					onClick={() => attachArray.append({ title: '' })}
 					className='bg-emerald-600 border border-emerald-400 outline-none self-start'
 				>
 					Добавить приложение

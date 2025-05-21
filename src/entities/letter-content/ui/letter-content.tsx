@@ -20,7 +20,11 @@ export const LetterContent: FC<ILetterContent> = props => {
 			</h2>
 
 			<TextBox label='Приветствие' error='' {...register('header')} />
-			<TextArea label='Содержательная часть' error='' {...register('body')} />
+			<TextArea
+				label='Содержательная часть'
+				error=''
+				{...register('bodyContent')}
+			/>
 
 			<div className='rounded bg-emerald-400 w-[100%] h-1 mt-3' />
 		</div>
