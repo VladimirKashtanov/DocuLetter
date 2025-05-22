@@ -30,7 +30,7 @@ const Component = (props: ITextBox, ref: React.Ref<HTMLInputElement>) => {
 			/>
 
 			{error && (
-				<div className='text-sm font-bold text-red-500 px-2'>{error}</div>
+				<div className='text-sm font-md text-red-100 px-2'>{error}</div>
 			)}
 		</div>
 	)

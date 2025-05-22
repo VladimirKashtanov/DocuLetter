@@ -60,7 +60,7 @@ const Component = (props: IFileBox, ref: React.Ref<HTMLInputElement>) => {
 			/>
 
 			{error && (
-				<div className='text-sm font-bold text-red-500 px-2'>{error}</div>
+				<div className='text-sm font-bold text-red-100 px-2'>{error}</div>
 			)}
 
 			{preview && (
@@ -68,6 +68,8 @@ const Component = (props: IFileBox, ref: React.Ref<HTMLInputElement>) => {
 					src={preview}
 					alt='Предпросмотр'
 					className='rounded border border-emerald-600 bg-white my-1 w-[150px] max-w-120px]'
+					width={150}
+					height={150}
 				/>
 			)}
 		</div>

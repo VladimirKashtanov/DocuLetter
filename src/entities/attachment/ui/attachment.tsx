@@ -1,18 +1,19 @@
-import { DataFormContentType } from '@/features/data-form/type'
+import { DataForm } from '@/features/data-form/validation'
 import { TextArea } from '@/shared/text-area'
 import { TextBox } from '@/shared/text-box'
 import clsx from 'clsx'
 import { FC } from 'react'
-import { UseFormRegister } from 'react-hook-form'
+import { FieldErrors, UseFormRegister } from 'react-hook-form'
 
 interface IAttachment {
-	readonly register: UseFormRegister<DataFormContentType>
+	readonly register: UseFormRegister<DataForm>
+	readonly errors: FieldErrors<DataForm>
 	readonly index: number
 	readonly className?: string
 }
 
 export const Attachment: FC<IAttachment> = props => {
-	const { register, index, className } = props
+	const { register, errors, index, className } = props
 
 	return (
 		<div className={clsx('flex flex-col gap-3 w-[100%]', className)}>
@@ -22,10 +23,14 @@ export const Attachment: FC<IAttachment> = props => {
 
 			<TextBox
 				label='Заголовок'
-				error=''
-				{...register(`attachments.${index}.title`)}
+				error={errors.attachments?.[index]?.title?.message}
+				{...register(`attachments.${index}.title`, { required: true })}
 			/>
-			<TextArea label='Содержание' error='' />
+			<TextArea
+				label='Содержание'
+				error={errors.attachments?.[index]?.content?.message}
+				{...register(`attachments.${index}.content`, { required: true })}
+			/>
 		</div>
 	)
 }

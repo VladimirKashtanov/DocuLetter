@@ -1,23 +1,35 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useFieldArray, useForm } from 'react-hook-form'
-import { DataFormContentType } from '../type'
+import { DataForm, dataSchema } from '../validation'
 
 export const useDataForm = () => {
-	const { control, register, handleSubmit, setValue } =
-		useForm<DataFormContentType>()
+	const {
+		control,
+		register,
+		handleSubmit,
+		setValue,
+		formState: { errors },
+	} = useForm<DataForm>({
+		resolver: zodResolver(dataSchema),
+	})
 
 	const attachArray = useFieldArray({
 		control,
 		name: 'attachments',
 	})
 
-	const createLetter = async (data: DataFormContentType) => {
+	const createLetter = async (data: DataForm) => {
 		const formData = new FormData()
 
 		for (const [key, value] of Object.entries(data)) {
 			if (key === 'logo' || key === 'attachments') continue
 
 			if (value !== undefined && value !== null) {
-				formData.append(key, String(value))
+				if (value instanceof Date) {
+					formData.append(key, value.toISOString())
+				} else {
+					formData.append(key, String(value))
+				}
 			}
 		}
 
@@ -29,8 +41,8 @@ export const useDataForm = () => {
 		}
 
 		// Обрабатываем файл с изображением
-		if (data.logo && data.logo[0]) {
-			formData.append('logo', data.logo[0])
+		if (data.logo && data.logo) {
+			formData.append('logo', data.logo)
 		}
 
 		const res = await fetch('/api/generate-doc', {
@@ -55,12 +67,13 @@ export const useDataForm = () => {
 
 	const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.target.files && e.target.files.length > 0) {
-			setValue('logo', e.target.files)
+			setValue('logo', e.target.files[0])
 		}
 	}
 
 	return {
 		register,
+		errors,
 		attachArray,
 		handleSubmit,
 		createLetter,

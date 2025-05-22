@@ -11,7 +11,8 @@ export const POST = async (req: NextRequest) => {
 		const formData = await req.formData()
 
 		// Подготовка данных для docxtemplater
-		const [y, m, d] = formData.get('receivedDate')?.toString().split('-') || ''
+		const rDateString = formData.get('receivedDate')?.toString() || ''
+		const rDate = rDateString ? new Date(rDateString) : undefined
 
 		const attachments = new Array<{
 			title: string
@@ -62,7 +63,7 @@ export const POST = async (req: NextRequest) => {
 			sendingDate: formatDate(new Date()),
 			number: formData.get('number')?.toString(),
 			rNumber: formData.get('rNumber')?.toString() || '',
-			receivedDate: y && m && d ? `${d}.${m}.${y}` : '',
+			receivedDate: formatDate(rDate),
 
 			attachments:
 				attachments.map(item => ({
@@ -163,7 +164,8 @@ export const POST = async (req: NextRequest) => {
 	}
 }
 
-function formatDate(date: Date): string {
+function formatDate(date: Date | undefined): string {
+	if (!date) return ''
 	const day = String(date.getUTCDate()).padStart(2, '0')
 	const month = String(date.getUTCMonth() + 1).padStart(2, '0')
 	return `${day}.${month}.${date.getUTCFullYear()}`

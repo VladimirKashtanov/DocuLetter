@@ -22,6 +22,7 @@ export const DataForm: FC<IDataForm> = props => {
 		handleSubmit,
 		createLetter,
 		register,
+		errors,
 		handleImageChange,
 		attachArray,
 	} = useDataForm()
@@ -36,17 +37,18 @@ export const DataForm: FC<IDataForm> = props => {
 		>
 			<SenderCompany
 				register={register}
+				errors={errors}
 				handleImageChange={handleImageChange}
 			/>
-			<Sender register={register} />
-			<Recipient register={register} />
-			<Letter register={register} />
-			<LetterContent register={register} />
+			<Sender register={register} errors={errors} />
+			<Recipient register={register} errors={errors} />
+			<Letter register={register} errors={errors} />
+			<LetterContent register={register} errors={errors} />
 
 			<div className='flex flex-col gap-3 w-[100%]'>
 				{attachArray.fields.map((field, index) => (
 					<div key={field.id} className='w-[100%] flex flex-col gap-3'>
-						<Attachment register={register} index={index} />
+						<Attachment register={register} errors={errors} index={index} />
 
 						<Button
 							type='button'
@@ -61,7 +63,7 @@ export const DataForm: FC<IDataForm> = props => {
 				))}
 				<Button
 					type='button'
-					onClick={() => attachArray.append({ title: '' })}
+					onClick={() => attachArray.append({ title: '', content: '' })}
 					className='bg-emerald-600 border border-emerald-400 outline-none self-start'
 				>
 					Добавить приложение
